@@ -150,41 +150,6 @@
             text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        .skill-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .skill-rank {
-            display: inline-block;
-            background: linear-gradient(145deg, #ffd700, #ffed4e);
-            color: #000;
-            padding: 8px 24px;
-            border-radius: 4px;
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
-        }
-        
-        .skill-name {
-            font-size: 48px;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px var(--glow-blue);
-            margin-bottom: 10px;
-        }
-        
-        .skill-name-cn {
-            font-size: 42px;
-            color: var(--text-secondary);
-            letter-spacing: 8px;
-            font-weight: 700;
-        }
-        
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -424,8 +389,6 @@
         }
         
         @media (max-width: 768px) {
-            .skill-name { font-size: 42px; }
-            .skill-name-cn { font-size: 24px; }
             .stats-panel { grid-template-columns: repeat(2, 1fr); }
             .skills-grid { grid-template-columns: 1fr; }
             .overclock-status { gap: 20px; }
@@ -456,12 +419,6 @@
         
         <div class="system-alert">
             <div class="system-text">[SYSTEM] AWAKENING SKILL UNLOCKED - 覺醒技能已啟動</div>
-        </div>
-        
-        <div class="skill-header">
-            <div class="skill-rank">S-RANK</div>
-            <div class="skill-name">MEMORY ARCHIVE</div>
-            <div class="skill-name-cn">記憶迴廊</div>
         </div>
         
         <div class="stats-panel">
