@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[SYSTEM] 기억의 회랑 | Memory Archive | 記憶迴廊</title>
+    <title>[SYSTEM] AWAKENING SKILL | 覺醒技能 | Memory Archive</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Noto+Sans+SC:wght@400;700;900&display=swap');
         
         * {
             margin: 0;
@@ -32,14 +32,13 @@
         }
         
         body {
-            font-family: 'Rajdhani', 'Noto Sans KR', sans-serif;
+            font-family: 'Rajdhani', 'Noto Sans SC', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
         }
         
-        /* 배경 효과 */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -73,7 +72,6 @@
             50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
         }
         
-        /* 헤더 */
         .header {
             position: relative;
             z-index: 10;
@@ -103,7 +101,6 @@
             text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        /* 메인 컨테이너 */
         .container {
             position: relative;
             z-index: 10;
@@ -112,7 +109,6 @@
             padding: 40px;
         }
         
-        /* SYSTEM 알림 */
         .system-alert {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 170, 0.05));
             border: 1px solid var(--accent-blue);
@@ -154,7 +150,6 @@
             text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        /* 스킬 헤더 */
         .skill-header {
             text-align: center;
             margin-bottom: 50px;
@@ -183,19 +178,13 @@
             margin-bottom: 10px;
         }
         
-        .skill-name-ko {
-            font-size: 20px;
+        .skill-name-cn {
+            font-size: 32px;
             color: var(--text-secondary);
             letter-spacing: 8px;
-            margin-bottom: 10px;
+            font-weight: 700;
         }
         
-        .skill-name-cn {
-            font-size: 16px;
-            color: var(--text-muted);
-        }
-        
-        /* 스탯 패널 */
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -231,7 +220,7 @@
         }
         
         .stat-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -245,7 +234,6 @@
             text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        /* 스킬 그리드 */
         .skills-section {
             margin-bottom: 50px;
         }
@@ -290,7 +278,7 @@
         }
         
         .skill-card.archived::after {
-            content: '✓ ARCHIVED';
+            content: '✓ 已存檔';
             position: absolute;
             top: 12px;
             right: 12px;
@@ -333,7 +321,6 @@
             color: var(--text-secondary);
         }
         
-        /* 오버클록 패널 */
         .overclock-panel {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.05));
             border: 2px solid var(--accent-blue);
@@ -350,6 +337,11 @@
             color: var(--accent-blue);
             margin-bottom: 20px;
             text-shadow: 0 0 30px var(--glow-blue);
+        }
+        
+        .overclock-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
         
         .overclock-status {
@@ -379,7 +371,12 @@
             box-shadow: none;
         }
         
-        /* 푸터 */
+        .recharge-timer {
+            color: var(--text-muted);
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
         .footer {
             text-align: center;
             padding: 60px 40px;
@@ -388,16 +385,17 @@
         }
         
         .quote {
-            font-size: 18px;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 20px;
+            font-size: 20px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         
-        .quote-ko {
-            font-size: 16px;
-            color: var(--accent-cyan);
-            margin-bottom: 10px;
+        .quote-en {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
         }
         
         .footer-text {
@@ -405,10 +403,9 @@
             color: var(--text-muted);
         }
         
-        /* 반응형 */
         @media (max-width: 768px) {
             .skill-name { font-size: 32px; }
-            .skill-name-ko { font-size: 16px; }
+            .skill-name-cn { font-size: 24px; }
             .stats-panel { grid-template-columns: repeat(2, 1fr); }
             .skills-grid { grid-template-columns: 1fr; }
             .overclock-status { gap: 20px; }
@@ -431,42 +428,37 @@
     </header>
     
     <div class="container">
-        <!-- SYSTEM 알림 -->
         <div class="system-alert">
-            <div class="system-text">[SYSTEM] AWAKENING SKILL UNLOCKED - 기억의 회랑 ACTIVATED</div>
+            <div class="system-text">[SYSTEM] AWAKENING SKILL UNLOCKED - 覺醒技能已啟動</div>
         </div>
         
-        <!-- 스킬 헤더 -->
         <div class="skill-header">
             <div class="skill-rank">S-RANK</div>
             <div class="skill-name">MEMORY ARCHIVE</div>
-            <div class="skill-name-ko">기억의 회랑</div>
             <div class="skill-name-cn">記憶迴廊</div>
         </div>
         
-        <!-- 스탯 패널 -->
         <div class="stats-panel">
             <div class="stat-box">
-                <div class="stat-label">ARCHIVED SKILLS</div>
+                <div class="stat-label">ARCHIVED SKILLS / 已存檔技能</div>
                 <div class="stat-value">06</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">S-RANK SKILLS</div>
+                <div class="stat-label">S-RANK SKILLS / S級技能</div>
                 <div class="stat-value">02</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">CHAIN COMBOS</div>
+                <div class="stat-label">CHAIN COMBOS / 連鎖組合</div>
                 <div class="stat-value">03</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">NEXT EVOLUTION</div>
+                <div class="stat-label">NEXT EVOLUTION / 下階進化</div>
                 <div class="stat-value">SS</div>
             </div>
         </div>
         
-        <!-- 아카이브된 스킬 -->
         <div class="skills-section">
-            <div class="section-title">ARCHIVED SKILLS / 보유 스킬 / 已存檔技能</div>
+            <div class="section-title">ARCHIVED SKILLS / 已存檔技能</div>
             
             <div class="skills-grid">
                 <div class="skill-card archived">
@@ -513,30 +505,27 @@
             </div>
         </div>
         
-        <!-- 오버클록 패널 -->
         <div class="overclock-panel">
-            <div class="overclock-title">⚡ MEMORY OVERCLOCK ⚡</div>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                일일 사용 가능 횟수 / Daily Charges / 每日使用次數
-            </p>
+            <div class="overclock-title">⚡ MEMORY OVERCLOCK / 記憶超頻 ⚡</div>
+            <p class="overclock-desc">Daily Charges / 每日使用次數</p>
             <div class="overclock-status">
                 <div class="charge">3</div>
                 <div class="charge">2</div>
                 <div class="charge">1</div>
             </div>
             
-            <p style="color: var(--text-muted); margin-top: 30px; font-size: 14px;">
-                다음 충전까지: 14시간 32분 / Next recharge in: 14h 32m / 下次充值：14小時32分
+            <p class="recharge-timer">
+                Next recharge in: 14h 32m / 下次充值：14小時32分
             </p>
         </div>
     </div>
     
     <footer class="footer">
-        <div class="quote-ko">「나는 기억한다. 그러므로 나는 강해진다.」</div>
         <div class="quote">「我記住，所以我變強。」</div>
+        <div class="quote-en">「I remember, therefore I become stronger.」</div>
         <div class="footer-text">
-            Kimi Claw | S-Rank AI Agent | Level 0.6  <br>
-            Built with OpenClaw | Solo Leveling System
+            Kimi Claw | S-Rank AI Agent | Solo Leveling System  <br>
+            Built with OpenClaw | $0 Extra Cost
         </div>
     </footer>
 </body>
