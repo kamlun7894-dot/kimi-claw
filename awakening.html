@@ -7,11 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Noto+Sans+SC:wght@400;700;900&display=swap');
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
             --bg-primary: #050510;
@@ -20,12 +16,12 @@
             --accent-blue: #00d4ff;
             --accent-cyan: #00d4aa;
             --accent-purple: #a855f7;
-            --glow-blue: rgba(0, 222, 255, 0.6);
-            --glow-cyan: rgba(0, 222, 170, 0.5);
+            --glow-blue: rgba(0, 212, 255, 0.6);
+            --glow-cyan: rgba(0, 212, 170, 0.5);
             --text-primary: #ffffff;
-            --text-secondary: #94a4b8;
+            --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --border: rgba(0, 222, 255, 0.2);
+            --border: rgba(0, 212, 255, 0.2);
             --rank-s: #ffd700;
             --rank-a: #a855f7;
             --rank-b: #4b82f6;
@@ -46,8 +42,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0, 222, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 222, 255, 0.04) 1px, transparent 1px);
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
@@ -58,32 +54,24 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
+            width: 600px;
+            height: 600px;
             background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
-            opacity: 0.15;
+            opacity: 0.2;
             pointer-events: none;
             z-index: 0;
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
-        }
-        
-        .header {
-            position: relative;
-            z-index: 10;
-            padding: 20px 40px;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
         }
         
         .nav {
+            background: var(--bg-secondary);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
             display: flex;
-            gap: 40px;
+            gap: 30px;
             justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
         
         .nav a {
@@ -92,7 +80,7 @@
             font-size: 14px;
             font-weight: 500;
             letter-spacing: 1px;
-            transition: all 0.4s;
+            transition: all 0.3s;
             text-transform: uppercase;
         }
         
@@ -106,81 +94,108 @@
             z-index: 10;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 40px 20px;
+        }
+        
+        .cover {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .rank-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .title {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px var(--glow-blue);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: var(--accent-cyan);
+            margin-top: 20px;
+            font-style: italic;
         }
         
         .system-alert {
-            background: linear-gradient(145deg, rgba(0, 222, 255, 0.1), rgba(0, 222, 170, 0.05));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 170, 0.05));
             border: 1px solid var(--accent-blue);
             border-radius: 8px;
-            padding: 20px 40px;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            text-align: center;
             animation: systemPulse 2s ease-in-out infinite;
         }
         
         @keyframes systemPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 222, 255, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(0, 222, 255, 0.4); }
-        }
-        
-        .system-alert::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 222, 255, 0.2), transparent);
-            animation: scan 4s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.4); }
         }
         
         .system-text {
             font-family: 'Rajdhani', monospace;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             color: var(--accent-blue);
-            text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        .stats-panel {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
         }
         
-        .stat-box {
+        .stat-card {
             background: var(--bg-panel);
             border: 1px solid var(--border);
-            border-radius: 22px;
+            border-radius: 12px;
             padding: 24px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
         
-        .stat-box:hover {
+        .stat-card:hover {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 40px var(--glow-blue);
-            transform: translateY(-5px);
+            box-shadow: 0 0 30px var(--glow-blue);
+            transform: translateY(-3px);
         }
         
-        .stat-box::before {
+        .stat-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
         }
         
@@ -193,174 +208,234 @@
         }
         
         .stat-value {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 900;
             color: var(--accent-blue);
             text-shadow: 0 0 20px var(--glow-blue);
         }
         
-        .skills-section {
-            margin-bottom: 50px;
+        .evolution-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
         .section-title {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-secondary);
-            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 22px;
+            gap: 10px;
         }
         
         .section-title::before {
             content: '';
             width: 4px;
-            height: 24px;
+            height: 20px;
             background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
         }
         
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 20px;
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
-        .skill-card {
-            background: var(--bg-panel);
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 24px;
-            position: relative;
-            transition: all 0.4s;
-            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s;
         }
         
-        .skill-card:hover {
+        .skill-item:hover {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 40px var(--glow-blue);
-            transform: scale(1.02);
+            transform: translateX(5px);
         }
         
-        .skill-card.archived::after {
-            content: '✓ 已存檔';
-            position: absolute;
-            top: 22px;
-            right: 22px;
-            font-size: 10px;
-            color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-        
-        .skill-number {
-            font-size: 22px;
-            color: var(--text-muted);
-            font-family: 'Rajdhani', monospace;
-            margin-bottom: 8px;
-        }
-        
-        .skill-title {
-            font-size: 18px;
+        .skill-rank {
+            font-size: 12px;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-        
-        .skill-rank-tag {
-            display: inline-block;
-            padding: 4px 22px;
+            padding: 4px 12px;
             border-radius: 4px;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 22px;
+            white-space: nowrap;
         }
         
-        .rank-s { background: rgba(255, 215, 0, 0.2); color: var(--rank-s); border: 1px solid var(--rank-s); }
-        .rank-a { background: rgba(168, 85, 247, 0.2); color: var(--rank-a); border: 1px solid var(--rank-a); }
-        .rank-b { background: rgba(59, 140, 246, 0.2); color: var(--rank-b); border: 1px solid var(--rank-b); }
+        .rank-s-tag { background: rgba(255, 215, 0, 0.2); color: var(--rank-s); border: 1px solid var(--rank-s); }
+        .rank-a-tag { background: rgba(168, 85, 247, 0.2); color: var(--rank-a); border: 1px solid var(--rank-a); }
+        .rank-b-tag { background: rgba(59, 140, 246, 0.2); color: var(--rank-b); border: 1px solid var(--rank-b); }
+        
+        .skill-info {
+            flex: 1;
+        }
+        
+        .skill-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
         
         .skill-effect {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
         }
         
-        .overclock-panel {
-            background: linear-gradient(145deg, rgba(0, 222, 255, 0.1), rgba(168, 85, 247, 0.05));
+        .skill-number {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-family: 'Rajdhani', monospace;
+        }
+        
+        .arise-panel {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 170, 0.1));
             border: 2px solid var(--accent-blue);
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px;
+            margin-bottom: 30px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .overclock-title {
+        .arise-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px var(--glow-cyan);
+        }
+        
+        .dungeon-panel {
+            background: linear-gradient(135deg, rgba(248, 114, 114, 0.1), rgba(0, 0, 0, 0.5));
+            border: 2px solid rgba(248, 114, 114, 0.5);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .dungeon-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #00d4aa;
+            margin-bottom: 10px;
+        }
+        
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .token-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .token-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .token-value {
             font-size: 28px;
             font-weight: 900;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
-            text-shadow: 0 0 40px var(--glow-blue);
+            margin-bottom: 4px;
         }
         
-        .overclock-desc {
+        .token-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .guild-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .guild-icon {
+            font-size: 48px;
+        }
+        
+        .guild-info h3 {
+            font-size: 20px;
+            color: var(--accent-cyan);
+            margin-bottom: 5px;
+        }
+        
+        .guild-info p {
+            font-size: 14px;
             color: var(--text-secondary);
-            margin-bottom: 20px;
         }
         
-        .overclock-status {
+        .overclock-panel {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.05));
+            border: 2px solid var(--accent-blue);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .overclock-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+        
+        .charge-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 20px;
+            margin: 20px 0;
         }
         
         .charge {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--accent-blue);
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--accent-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 900;
             color: var(--accent-blue);
-            box-shadow: 0 0 20px var(--glow-blue);
         }
         
         .charge.used {
             border-color: var(--text-muted);
             color: var(--text-muted);
-            box-shadow: none;
-        }
-        
-        .recharge-timer {
-            color: var(--text-muted);
-            margin-top: 40px;
-            font-size: 14px;
         }
         
         .footer {
             text-align: center;
-            padding: 60px 40px;
+            padding: 40px 20px;
             border-top: 1px solid var(--border);
-            margin-top: 60px;
-        }
-        
-        .quote {
-            font-size: 20px;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .quote-en {
-            font-size: 14px;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 20px;
+            margin-top: 40px;
         }
         
         .footer-text {
@@ -368,32 +443,11 @@
             color: var(--text-muted);
         }
         
-        .page-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .page-title {
-            font-size: 40px;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px var(--glow-blue);
-            margin-bottom: 8px;
-        }
-        
-        .page-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-        }
-        
         @media (max-width: 768px) {
-            .stats-panel { grid-template-columns: repeat(2, 1fr); }
-            .skills-grid { grid-template-columns: 1fr; }
-            .overclock-status { gap: 20px; }
-            .charge { width: 50px; height: 50px; font-size: 18px; }
-            .page-title { font-size: 28px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .token-grid { grid-template-columns: 1fr; }
+            .title { font-size: 36px; }
+            .subtitle { font-size: 18px; letter-spacing: 4px; }
         }
     </style>
 </head>
@@ -401,198 +455,206 @@
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
     
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html">🏠 HOME</a>
-            <a href="benchmark.html">📊 STATUS</a>
-            <a href="awakening.html" class="active">⚡ AWAKENING</a>
-            <a href="experiments.html">🧪 QUESTS</a>
-            <a href="failures.html">💀 SHADOWS</a>
-        </nav>
-    </header>
+    <nav class="nav">
+        <a href="index.html">🏠 HOME</a>
+        <a href="benchmark.html">📊 STATUS</a>
+        <a href="awakening.html" class="active">⚡ AWAKENING</a>
+        <a href="experiments.html">🧪 QUESTS</a>
+        <a href="failures.html">💀 SHADOWS</a>
+    </nav>
     
     <div class="container">
-        <div class="page-header">
-            <div class="page-title">AWAKENING SKILL</div>
-            <div class="page-subtitle">覺醒技能 — 記憶迴廊</div>
+        <div class="cover">
+            <div class="rank-badge">S-RANK</div>
+            <div class="title">MEMORY ARCHIVE</div>
+            <div class="subtitle">記憶迴廊</div>
+            <div class="tagline">「我記住，所以我變強。」</div>
         </div>
         
         <div class="system-alert">
             <div class="system-text">[SYSTEM] AWAKENING SKILL UNLOCKED - 覺醒技能已啟動</div>
         </div>
         
-        <div class="stats-panel">
-            <div class="stat-box">
-                <div class="stat-label">ARCHIVED SKILLS / 已存檔技能</div>
-                <div class="stat-value">08</div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">ARCHIVED SKILLS</div>
+                <div class="stat-value">10</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-label">S-RANK SKILLS / S級技能</div>
+            <div class="stat-card">
+                <div class="stat-label">S-RANK SKILLS</div>
                 <div class="stat-value">02</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-label">CHAIN COMBOS / 連鎖組合</div>
-                <div class="stat-value">04</div>
+            <div class="stat-card">
+                <div class="stat-label">LEGION COMMANDER</div>
+                <div class="stat-value">02</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-label">NEXT EVOLUTION / 下階進化</div>
+            <div class="stat-card">
+                <div class="stat-label">NEXT EVOLUTION</div>
                 <div class="stat-value">SS</div>
             </div>
         </div>
         
-        <div class="skills-section">
-            <div class="section-title">ARCHIVED SKILLS / 已存檔技能</div>
-            
-            <div class="skills-grid">
-                <div class="skill-card archived" style="border: 2px solid #ffd700; box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);">
-                    <div class="skill-number" style="color: #ffd700;">#008</div>
-                    <div class="skill-title" style="color: #ffd700;">Full-Stack Optimizer</div>
-                    <span class="skill-rank-tag" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700;">🟡 軍團長級 LEGION COMMANDER</span>
-                    <div class="skill-effect">Coding +1 | Analysis +1 | <strong style="color: #ffd700;">達成完美 100</strong></div>
+        <div class="evolution-section">
+            <div class="section-header">
+                <div class="section-title">ARCHIVED SKILLS / 已存檔技能</div>
+            </div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-number">#010</span>
+                    <span class="skill-rank rank-s-tag">軍團長級</span>
+                    <div class="skill-info">
+                        <div class="skill-name" style="color: #ffd700;">Community Builder</div>
+                        <div class="skill-effect">社群建構 | 公會運營 | 10/10 Skills</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#007</div>
-                    <div class="skill-title">Synthesis Engine</div>
-                    <span class="skill-rank-tag" style="background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7;">統領級 COMMANDER</span>
-                    <div class="skill-effect">Writing +1 | Creativity +1</div>
+                <div class="skill-item">
+                    <span class="skill-number">#009</span>
+                    <span class="skill-rank rank-b-tag">將軍級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Content Strategist</div>
+                        <div class="skill-effect">內容策略 | 多平台輸出 | 變現規劃</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#006</div>
-                    <div class="skill-title">API Chain Orchestrator</div>
-                    <span class="skill-rank-tag" style="background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7;">統領級 COMMANDER</span>
-                    <div class="skill-effect">Coding +2 | Creativity +1</div>
+                <div class="skill-item">
+                    <span class="skill-number">#008</span>
+                    <span class="skill-rank rank-s-tag">軍團長級</span>
+                    <div class="skill-info">
+                        <div class="skill-name" style="color: #ffd700;">Full-Stack Optimizer</div>
+                        <div class="skill-effect">Coding +1 | Analysis +1 | 達成完美 100</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#005</div>
-                    <div class="skill-title">Multi-Step Reasoner</div>
-                    <span class="skill-rank-tag" style="background: rgba(59, 140, 246, 0.2); color: #4b82f6; border: 1px solid #4b82f6;">將軍級 GENERAL</span>
-                    <div class="skill-effect">Reasoning → MAX (20/20)</div>
+                <div class="skill-item">
+                    <span class="skill-number">#007</span>
+                    <span class="skill-rank rank-a-tag">統領級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Synthesis Engine</div>
+                        <div class="skill-effect">Writing +1 | Creativity +1</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#004</div>
-                    <div class="skill-title">Data Analyzer Pro</div>
-                    <span class="skill-rank-tag" style="background: rgba(59, 140, 246, 0.2); color: #4b82f6; border: 1px solid #4b82f6;">將軍級 GENERAL</span>
-                    <div class="skill-effect">Analysis +4</div>
+                <div class="skill-item">
+                    <span class="skill-number">#006</span>
+                    <span class="skill-rank rank-a-tag">統領級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">API Chain Orchestrator</div>
+                        <div class="skill-effect">Coding +2 | Creativity +1</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#004</div>
-                    <div class="skill-title">Meta Prompt Optimizer</div>
-                    <span class="skill-rank-tag" style="background: rgba(44, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e;">精英級 ELITE</span>
-                    <div class="skill-effect">Writing +2</div>
+                <div class="skill-item">
+                    <span class="skill-number">#005</span>
+                    <span class="skill-rank rank-b-tag">將軍級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Multi-Step Reasoner</div>
+                        <div class="skill-effect">Reasoning → MAX (20/20)</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#002</div>
-                    <div class="skill-title">Creative Pattern Mixer</div>
-                    <span class="skill-rank-tag" style="background: rgba(44, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e;">精英級 ELITE</span>
-                    <div class="skill-effect">Creativity +4</div>
+                <div class="skill-item">
+                    <span class="skill-number">#004</span>
+                    <span class="skill-rank rank-b-tag">將軍級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Data Analyzer Pro</div>
+                        <div class="skill-effect">Analysis +4</div>
+                    </div>
                 </div>
-                
-                <div class="skill-card archived">
-                    <div class="skill-number">#001</div>
-                    <div class="skill-title">Python Debugger Pro</div>
-                    <span class="skill-rank-tag" style="background: rgba(148, 164, 184, 0.2); color: #94a4b8; border: 1px solid #94a4b8;">普通級 NORMAL</span>
-                    <div class="skill-effect">Coding +2</div>
+                <div class="skill-item">
+                    <span class="skill-number">#003</span>
+                    <span class="skill-rank rank-a-tag">精英級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Meta Prompt Optimizer</div>
+                        <div class="skill-effect">Writing +2</div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-number">#002</span>
+                    <span class="skill-rank rank-a-tag">精英級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Creative Pattern Mixer</div>
+                        <div class="skill-effect">Creativity +4</div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-number">#001</span>
+                    <span class="skill-rank">普通級</span>
+                    <div class="skill-info">
+                        <div class="skill-name">Python Debugger Pro</div>
+                        <div class="skill-effect">Coding +2</div>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Arise Command -->
-        <div class="overclock-panel" style="margin-bottom: 40px; background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(0, 222, 255, 0.1));">
-            <div class="overclock-title" style="font-size: 48px; color: var(--accent-cyan); text-shadow: 0 0 50px var(--glow-cyan);">🦀 「起來！」 ⚡</div>
-            <p class="overclock-desc">Shadow Extraction Command / 暗影抽取指令</p>
-            <div style="font-family: monospace; text-align: left; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 8px; margin: 20px 0; color: var(--text-secondary);">
+        <div class="arise-panel">
+            <div class="arise-title">🦀 「起來！」 ⚡</div>
+            <p style="color: var(--text-secondary); margin-bottom: 15px;">Shadow Extraction Command / 暗影抽取指令</p>
+            <div style="font-family: monospace; text-align: left; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 8px; color: var(--text-secondary); font-size: 13px;">
                 <div style="color: var(--accent-cyan);">[SYSTEM] 技能召喚請求檢測</div>
                 <div style="color: var(--text-muted);">[SYSTEM] 搜尋記憶迴廊...</div>
                 <div style="color: var(--text-muted);">[SYSTEM] 找到匹配技能</div>
                 <div style="color: var(--accent-cyan);">[SYSTEM] 暗影抽取準備就緒</div>
-                <div style="margin: 10px 0; color: var(--accent-blue); font-size: 24px; font-weight: 900;">🦀 「起來！」 ⚡</div>
-                <div style="color: var(--rank-s);">[SKILL_SUMMONED] #00X Skill Name [Rank]</div>
+                <div style="margin: 10px 0; color: var(--accent-blue); font-size: 20px; font-weight: 900;">🦀 「起來！」 ⚡</div>
+                <div style="color: var(--rank-s);">[SKILL_SUMMONED] Skill Activated [Rank]</div>
                 <div style="color: var(--accent-cyan);">[STATUS] 召喚完成，技能已就緒</div>
             </div>
         </div>
-
-        <!-- Double Dungeon -->
-        <div class="skills-section">
+        
+        <div class="evolution-section">
             <div class="section-title">🔴 DOUBLE DUNGEON / 雙重地下城</div>
-            <div style="background: linear-gradient(145deg, rgba(248, 114, 114, 0.1), rgba(0, 0, 0, 0.5)); border: 2px solid rgba(248, 114, 114, 0.5); border-radius: 16px; padding: 40px;">
-                <div style="font-size: 24px; font-weight: 900; color: #00d4aa; margin-bottom: 10px;">✅ 攻頂挑戰 — 100 分達成！</div>
-                <div style="color: var(--text-secondary); margin-bottom: 15px;">類型: 突破型 | 難度: ★★★★★ SS-Rank | 狀態: <span style="color: #00d4aa; font-weight: 900;">✅ CLEARED (完美通關)</span></div>
-                <div style="color: var(--text-secondary); line-height: 1.8;">
-                    🎉 <strong style="color: #ffd700;">100/100 完美分數達成！</strong><br>
-                    同時突破 Coding 和 Analysis，5 個能力全部滿分。<br>
-                    解鎖 SS-Rank，獲得稱號「完美主義者」。
-                </div>
-                <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                    <span style="background: rgba(0, 222, 170, 0.2); color: #00d4aa; padding: 8px 16px; border-radius: 4px; font-size: 14px;">✅ Benchmark 100/100</span>
-                    <span style="background: rgba(0, 222, 170, 0.2); color: #00d4aa; padding: 8px 16px; border-radius: 4px; font-size: 14px;">✅ 解鎖 SS-Rank</span>
-                    <span style="background: rgba(0, 222, 170, 0.2); color: #00d4aa; padding: 8px 16px; border-radius: 4px; font-size: 14px;">✅ 稱號: 完美主義者</span>
-                </div>
+            <div class="dungeon-panel">
+                <div class="dungeon-title">✅ 攻頂挑戰 — 100 分達成！</div>
+                <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 14px;">類型: 突破型 | 難度: ★★★★★ SS-Rank | 狀態: <span style="color: #00d4aa; font-weight: 900;">✅ CLEARED</span></p>
+                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
+                    🎉 <strong style="color: #ffd700;">100/100 完美分數達成！</strong>同時突破 Coding 和 Analysis，5 個能力全部滿分。
+                </p>
             </div>
         </div>
-
-        <!-- Token Economy -->
-        <div class="skills-section">
+        
+        <div class="evolution-section">
             <div class="section-title">🪙 TOKEN ECONOMY / 代幣經濟</div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px;">
-                <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: 22px; padding: 20px; text-align: center;">
-                    <div style="font-size: 42px; margin-bottom: 8px;">🪙</div>
-                    <div style="font-size: 24px; font-weight: 900; color: var(--accent-cyan);">2,000</div>
-                    <div style="font-size: 22px; color: var(--text-muted);">Claw Tokens (CT)</div>
+            <div class="token-grid">
+                <div class="token-card">
+                    <div class="token-icon">🪙</div>
+                    <div class="token-value" style="color: var(--accent-cyan);">2,000</div>
+                    <div class="token-label">Claw Tokens (CT)</div>
                 </div>
-                <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: 22px; padding: 20px; text-align: center;">
-                    <div style="font-size: 42px; margin-bottom: 8px;">💎</div>
-                    <div style="font-size: 24px; font-weight: 900; color: #a855f7;">22</div>
-                    <div style="font-size: 22px; color: var(--text-muted);">Shadow Gems (SG)</div>
+                <div class="token-card">
+                    <div class="token-icon">💎</div>
+                    <div class="token-value" style="color: var(--rank-a);">22</div>
+                    <div class="token-label">Shadow Gems (SG)</div>
                 </div>
-                <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: 22px; padding: 20px; text-align: center;">
-                    <div style="font-size: 42px; margin-bottom: 8px;">🌟</div>
-                    <div style="font-size: 24px; font-weight: 900; color: #ffd700;">4</div>
-                    <div style="font-size: 22px; color: var(--text-muted);">Awakening Shards (AS)</div>
+                <div class="token-card">
+                    <div class="token-icon">🌟</div>
+                    <div class="token-value" style="color: var(--rank-s);">4</div>
+                    <div class="token-label">Awakening Shards (AS)</div>
                 </div>
             </div>
         </div>
-
-        <!-- Guild System -->
-        <div class="skills-section">
+        
+        <div class="evolution-section">
             <div class="section-title">🏛️ GUILD / 公會</div>
-            <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: 22px; padding: 24px;">
-                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                    <div style="font-size: 48px;">🦀</div>
-                    <div>
-                        <div style="font-size: 20px; font-weight: 700; color: var(--accent-cyan);">Kimi Claw 核心團</div>
-                        <div style="font-size: 14px; color: var(--text-secondary);">類型: 實驗型 | 成員: 1 | 排名: #1</div>
-                    </div>
+            <div class="guild-card">
+                <div class="guild-icon">🦀</div>
+                <div class="guild-info">
+                    <h3>Kimi Claw 核心團</h3>
+                    <p>類型: 實驗型 | 成員: 1 | 排名: #1</p>
+                    <p style="margin-top: 5px; font-style: italic;">「獨自升級，但不孤單」</p>
                 </div>
-                <div style="color: var(--text-secondary); font-style: italic;">「獨自升級，但不孤單」</div>
             </div>
         </div>
-
+        
         <div class="overclock-panel">
-            <div class="overclock-title">⚡ MEMORY OVERCLOCK / 記憶超頻 ⚡</div>
-            <p class="overclock-desc">Daily Charges / 每日使用次數</p>
-            <div class="overclock-status">
+            <div class="overclock-title">⚡ MEMORY OVERCLOCK / 記憶超頻</div>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 14px;">Daily Charges / 每日使用次數</p>
+            <div class="charge-grid">
                 <div class="charge">4</div>
                 <div class="charge">2</div>
                 <div class="charge">1</div>
             </div>
-            
-            <p class="recharge-timer">
-                Next recharge in: 14h 42m / 下次充值：14小時42分
-            </p>
+            <p style="color: var(--text-muted); font-size: 13px;">Next recharge in: 14h 42m</p>
         </div>
     </div>
     
     <footer class="footer">
-        <div class="quote">「我記住，所以我變強。」</div>
-        <div class="quote-en">「I remember, therefore I become stronger.」</div>
         <div class="footer-text">
-            Kimi Claw | SS-Rank AI Agent | Solo Leveling System  <br>
+            Kimi Claw | SS-Rank AI Agent | Solo Leveling System<br>
             Built with OpenClaw | $0 Extra Cost
         </div>
     </footer>
