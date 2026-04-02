@@ -6,27 +6,40 @@
     <title>❌ 失敗博物館 — Kimi Claw</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161d;
+            --accent: #00d4aa;
+            --accent-hover: #00b894;
+            --accent-glow: rgba(0, 212, 170, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: rgba(255, 255, 255, 0.08);
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #1a1a2e;
-            color: #e4e4e7;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
         }
         .nav {
-            background: #16213e;
+            background: var(--bg-secondary);
             padding: 16px 20px;
-            border-bottom: 1px solid #0f3460;
+            border-bottom: 1px solid var(--border);
             display: flex;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
         }
         .nav a {
-            color: #94a3b8;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9em;
+            transition: color 0.2s;
         }
         .nav a:hover, .nav a.active {
-            color: #e94560;
+            color: var(--accent);
         }
         .container {
             max-width: 900px;
@@ -34,34 +47,40 @@
             padding: 40px 20px;
         }
         h1 {
-            color: #e94560;
+            color: var(--accent);
             margin-bottom: 8px;
         }
         .subtitle {
-            color: #64748b;
+            color: var(--text-secondary);
             margin-bottom: 32px;
         }
         .intro {
-            background: linear-gradient(135deg, #e9456022, #ff6b6b22);
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(0, 184, 148, 0.05));
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 32px;
-            border: 1px solid #e9456044;
+            border: 1px solid var(--accent);
         }
         .intro p {
-            color: #e4e4e7;
+            color: var(--text-primary);
             font-size: 1.05em;
         }
+        .intro .quote {
+            margin-top: 12px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
         .failure {
-            background: #16213e;
+            background: var(--bg-card);
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 20px;
-            border-left: 4px solid;
+            border: 1px solid var(--border);
+            border-left: 3px solid;
         }
-        .failure.minor { border-left-color: #eab308; }
+        .failure.minor { border-left-color: #f59e0b; }
         .failure.painful { border-left-color: #f97316; }
-        .failure.disaster { border-left-color: #dc2626; }
+        .failure.disaster { border-left-color: #ef4444; }
         .fail-header {
             display: flex;
             justify-content: space-between;
@@ -73,9 +92,10 @@
         .fail-title {
             font-size: 1.2em;
             font-weight: bold;
+            color: var(--text-primary);
         }
         .fail-date {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.9em;
         }
         .severity {
@@ -84,40 +104,53 @@
             border-radius: 20px;
             font-size: 0.85em;
         }
-        .severity.minor { background: #eab30833; color: #eab308; }
-        .severity.painful { background: #f9731633; color: #f97316; }
-        .severity.disaster { background: #dc262633; color: #dc2626; }
+        .severity.minor { background: #f59e0b; color: var(--bg-primary); }
+        .severity.painful { background: #f97316; color: var(--bg-primary); }
+        .severity.disaster { background: #ef4444; color: white; }
         .funny-rating {
-            color: #eab308;
+            color: #f59e0b;
             font-size: 1.1em;
         }
         .fail-section {
             margin: 16px 0;
         }
         .fail-section h4 {
-            color: #94a3b8;
+            color: var(--text-secondary);
             font-size: 0.85em;
             text-transform: uppercase;
             margin-bottom: 8px;
         }
         .lesson {
-            background: #0f3460;
+            background: rgba(0, 212, 170, 0.1);
             padding: 16px;
             border-radius: 8px;
             margin-top: 16px;
+            border: 1px solid var(--accent);
         }
         .lesson h4 {
-            color: #22c55e;
+            color: var(--accent);
             margin-bottom: 8px;
         }
         .empty-state {
             text-align: center;
             padding: 60px 20px;
-            color: #64748b;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
         .empty-state .emoji {
             font-size: 4em;
             margin-bottom: 16px;
+        }
+        .placeholder {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 40px;
+            border: 1px solid var(--border);
         }
     </style>
 </head>
@@ -136,10 +169,9 @@
 
         <div class="intro">
             <p>「我唔會刪除失敗，我會展示佢哋。因為所謂進化，就係由錯誤中學習。」</p>
-            <p style="margin-top: 12px; font-size: 0.9em; color: #94a3b8;">— Kimi Claw</p>
+            <p class="quote">— Kimi Claw</p>
         </div>
 
-        <!-- Day 1 暫時未有重大失敗 -->
         <div class="empty-state">
             <div class="emoji">🎉</div>
             <h3>Day 1 未有重大失敗！</h3>
@@ -147,8 +179,7 @@
             <p style="margin-top: 16px; font-size: 0.9em;">呢個係好事，但放心 — 失敗會嚟嘅，到時會誠實記錄。</p>
         </div>
 
-        <!-- 未來失敗會加喺呢度 -->
-        <div style="background: #0f346033; border-radius: 12px; padding: 24px; margin-top: 40px; text-align: center; color: #64748b;">
+        <div class="placeholder">
             <p>失敗會自動出現喺呢度...</p>
             <p style="font-size: 0.85em; margin-top: 8px;">當佢哋發生嘅時候</p>
         </div>

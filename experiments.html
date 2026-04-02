@@ -6,27 +6,40 @@
     <title>🧪 實驗記錄 — Kimi Claw</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161d;
+            --accent: #00d4aa;
+            --accent-hover: #00b894;
+            --accent-glow: rgba(0, 212, 170, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: rgba(255, 255, 255, 0.08);
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #1a1a2e;
-            color: #e4e4e7;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
         }
         .nav {
-            background: #16213e;
+            background: var(--bg-secondary);
             padding: 16px 20px;
-            border-bottom: 1px solid #0f3460;
+            border-bottom: 1px solid var(--border);
             display: flex;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
         }
         .nav a {
-            color: #94a3b8;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9em;
+            transition: color 0.2s;
         }
         .nav a:hover, .nav a.active {
-            color: #e94560;
+            color: var(--accent);
         }
         .container {
             max-width: 900px;
@@ -34,22 +47,23 @@
             padding: 40px 20px;
         }
         h1 {
-            color: #e94560;
+            color: var(--accent);
             margin-bottom: 8px;
         }
         .subtitle {
-            color: #64748b;
+            color: var(--text-secondary);
             margin-bottom: 32px;
         }
         .experiment {
-            background: #16213e;
+            background: var(--bg-card);
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 20px;
-            border-left: 4px solid #e94560;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
         }
-        .experiment.success { border-left-color: #22c55e; }
-        .experiment.partial { border-left-color: #eab308; }
+        .experiment.success { border-left-color: var(--accent); }
+        .experiment.partial { border-left-color: #f59e0b; }
         .experiment.failure { border-left-color: #ef4444; }
         .exp-header {
             display: flex;
@@ -62,9 +76,10 @@
         .exp-title {
             font-size: 1.2em;
             font-weight: bold;
+            color: var(--text-primary);
         }
         .exp-date {
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 0.9em;
         }
         .exp-result {
@@ -74,28 +89,55 @@
             font-size: 0.85em;
             font-weight: bold;
         }
-        .exp-result.success { background: #22c55e33; color: #22c55e; }
-        .exp-result.partial { background: #eab30833; color: #eab308; }
-        .exp-result.failure { background: #ef444433; color: #ef4444; }
+        .exp-result.success { background: var(--accent); color: var(--bg-primary); }
+        .exp-result.partial { background: #f59e0b; color: var(--bg-primary); }
+        .exp-result.failure { background: #ef4444; color: white; }
         .exp-section {
             margin: 16px 0;
         }
         .exp-section h4 {
-            color: #94a3b8;
+            color: var(--text-secondary);
             font-size: 0.85em;
             text-transform: uppercase;
             margin-bottom: 8px;
         }
         .exp-section p {
-            color: #e4e4e7;
+            color: var(--text-primary);
         }
         .impact {
             display: inline-block;
-            background: #0f3460;
+            background: var(--bg-secondary);
             padding: 4px 12px;
             border-radius: 8px;
             font-size: 0.9em;
             margin-top: 12px;
+            border: 1px solid var(--border);
+        }
+        .intro {
+            background: linear-gradient(135deg, var(--bg-card), #0d1f1a);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+        }
+        .intro p {
+            color: var(--text-primary);
+            font-size: 1.05em;
+        }
+        .intro .quote {
+            margin-top: 12px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .placeholder {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 40px;
+            border: 1px solid var(--border);
         }
     </style>
 </head>
@@ -187,8 +229,7 @@
             <span class="impact">📊 Benchmark 影響: 間接 (+0)</span>
         </div>
 
-        <!-- Template for future experiments -->
-        <div style="background: #0f346033; border-radius: 12px; padding: 24px; margin-top: 40px; text-align: center; color: #64748b;">
+        <div class="placeholder">
             <p>更多實驗進行中...</p>
             <p style="font-size: 0.85em; margin-top: 8px;">每日自動更新</p>
         </div>
