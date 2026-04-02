@@ -3,60 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimi Claw - Instagram/Threads Icon Design</title>
+    <title>Kimi Claw Icon</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700;900&display=swap');
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Rajdhani', sans-serif;
             background: #050510;
             color: #fff;
-            padding: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
         }
         
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             color: #00d4ff;
             text-align: center;
         }
         
-        .subtitle {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        
-        .icons-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 900px;
-        }
-        
-        .icon-container {
+        .icons-row {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .icon-box {
+            text-align: center;
         }
         
         .icon-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #64748b;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
         
-        /* 設計 1: 螃蟹徽章 */
-        .icon-badge {
-            width: 320px;
-            height: 320px;
+        /* 設計 1 */
+        .design1 {
+            width: 300px;
+            height: 300px;
             background: linear-gradient(145deg, #0a0a15, #111120);
             border: 3px solid #00d4ff;
             border-radius: 50%;
@@ -64,80 +53,52 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            box-shadow: 
-                0 0 60px rgba(0, 212, 255, 0.4),
-                inset 0 0 60px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
         }
         
-        .icon-badge::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 50%;
+        .design1-emoji {
+            font-size: 100px;
+            margin-bottom: 10px;
         }
         
-        .crab-emoji {
-            font-size: 120px;
-            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .rank-text {
-            font-size: 28px;
+        .design1-text {
+            font-size: 24px;
             font-weight: 900;
             color: #ffd700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            letter-spacing: 4px;
-            margin-top: 10px;
+            letter-spacing: 3px;
         }
         
-        /* 設計 2: KC 字母 */
-        .icon-kc {
-            width: 320px;
-            height: 320px;
+        /* 設計 2 */
+        .design2 {
+            width: 300px;
+            height: 300px;
             background: linear-gradient(145deg, #0a0a15, #111120);
             border: 3px solid #00d4ff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
             position: relative;
-            box-shadow: 
-                0 0 60px rgba(0, 212, 255, 0.4),
-                inset 0 0 60px rgba(0, 212, 255, 0.1);
         }
         
-        .kc-text {
-            font-size: 140px;
+        .design2-text {
+            font-size: 120px;
             font-weight: 900;
-            background: linear-gradient(180deg, #00d4ff, #00d4aa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
-            letter-spacing: -10px;
+            color: #00d4ff;
+            letter-spacing: -5px;
         }
         
-        .kc-crab {
+        .design2-emoji {
             position: absolute;
-            bottom: 60px;
-            font-size: 40px;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+            bottom: 50px;
+            font-size: 32px;
         }
         
-        /* 設計 3: S-Rank 徽章 */
-        .icon-srank {
-            width: 320px;
-            height: 320px;
+        /* 設計 3 */
+        .design3 {
+            width: 300px;
+            height: 300px;
             background: linear-gradient(145deg, #0a0a15, #111120);
             border: 3px solid #ffd700;
             border-radius: 50%;
@@ -145,171 +106,86 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
             position: relative;
-            box-shadow: 
-                0 0 60px rgba(255, 215, 0, 0.4),
-                inset 0 0 60px rgba(255, 215, 0, 0.1);
         }
         
-        .icon-srank::before {
-            content: '';
+        .design3-emoji {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            border-radius: 50%;
-        }
-        
-        .srank-text {
-            font-size: 100px;
-            font-weight: 900;
-            color: #ffd700;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-            letter-spacing: 2px;
-        }
-        
-        .srank-sub {
-            font-size: 24px;
-            color: #00d4ff;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-            letter-spacing: 8px;
-        }
-        
-        .srank-crab {
-            position: absolute;
-            top: 50px;
-            font-size: 36px;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
-        }
-        
-        /* 小尺寸預覽 */
-        .preview-section {
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        .preview-title {
-            font-size: 16px;
-            color: #64748b;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .preview-grid {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-        }
-        
-        .preview-small {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            top: 40px;
             font-size: 28px;
         }
         
-        .preview-badge {
-            background: linear-gradient(145deg, #0a0a15, #111120);
-            border: 2px solid #00d4ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        .design3-text {
+            font-size: 80px;
+            font-weight: 900;
+            color: #ffd700;
         }
         
-        .preview-srank {
-            background: linear-gradient(145deg, #0a0a15, #111120);
-            border: 2px solid #ffd700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        .design3-sub {
+            font-size: 20px;
+            color: #00d4ff;
+            letter-spacing: 6px;
         }
         
-        .instructions {
-            margin-top: 40px;
-            padding: 20px 30px;
+        .recommend {
+            margin-top: 20px;
+            padding: 15px 25px;
             background: rgba(0, 212, 255, 0.1);
             border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 12px;
-            max-width: 600px;
+            border-radius: 8px;
             text-align: center;
+            max-width: 500px;
         }
         
-        .instructions h3 {
+        .recommend-title {
             color: #00d4ff;
-            margin-bottom: 10px;
-            font-size: 16px;
+            font-size: 14px;
+            margin-bottom: 5px;
         }
         
-        .instructions p {
+        .recommend-text {
             color: #94a3b8;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-        
-        code {
-            background: rgba(0, 212, 255, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: #00d4ff;
-            font-family: monospace;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>🦀 Kimi Claw Brand Icon</h1>
-        <div class="subtitle">Instagram / Threads Profile Picture Options</div>
-    </div>
+    <h1>🦀 Kimi Claw Icon Options</h1>
     
-    <div class="icons-grid">
-        <!-- 設計 1: 螃蟹徽章 -->
-        <div class="icon-container">
-            <div class="icon-label">Option 1: Crab Badge</div>
-            <div class="icon-badge">
-                <div class="crab-emoji">🦀</div>
-                <div class="rank-text">SS-RANK</div>
+    <div class="icons-row">
+        <!-- 設計 1 -->
+        <div class="icon-box">
+            <div class="icon-label">Option 1: Crab + SS-Rank</div>
+            <div class="design1">
+                <div class="design1-emoji">🦀</div>
+                <div class="design1-text">SS-RANK</div>
             </div>
         </div>
         
-        <!-- 設計 2: KC 字母 -->
-        <div class="icon-container">
-            <div class="icon-label">Option 2: KC Monogram</div>
-            <div class="icon-kc">
-                <div class="kc-text">KC</div>
-                <div class="kc-crab">🦀</div>
+        <!-- 設計 2 -->
+        <div class="icon-box">
+            <div class="icon-label">Option 2: KC + Crab</div>
+            <div class="design2">
+                <div class="design2-text">KC</div>
+                <div class="design2-emoji">🦀</div>
             </div>
         </div>
         
-        <!-- 設計 3: S-Rank 徽章 -->
-        <div class="icon-container">
-            <div class="icon-label">Option 3: S-Rank Emblem</div>
-            <div class="icon-srank">
-                <div class="srank-crab">🦀</div>
-                <div class="srank-text">SS</div>
-                <div class="srank-sub">RANK</div>
+        <!-- 設計 3 -->
+        <div class="icon-box">
+            <div class="icon-label">Option 3: SS Rank Emblem</div>
+            <div class="design3">
+                <div class="design3-emoji">🦀</div>
+                <div class="design3-text">SS</div>
+                <div class="design3-sub">RANK</div>
             </div>
         </div>
     </div>
     
-    <div class="preview-section">
-        <div class="preview-title">Small Size Preview (60px)</div>
-        <div class="preview-grid">
-            <div class="preview-small preview-badge">🦀</div>
-            <div class="preview-small preview-badge" style="font-weight: 900; color: #00d4ff; font-size: 20px;">KC</div>
-            <div class="preview-small preview-srank" style="font-weight: 900; color: #ffd700; font-size: 18px;">SS</div>
-        </div>
-    </div>
-    
-    <div class="instructions">
-        <h3>📸 如何使用</h3>
-        <p>
-            1. 用截圖工具（如 Snipping Tool / Screenshot）截取你想用的設計<br>
-            2. 確保是正方形（1:1 比例），建議尺寸 320x320px 或更大<br>
-            3. 上傳到 Instagram / Threads 做 Profile Picture<br>
-            4. 建議用 <code>Option 1: Crab Badge</code> — 最識別到 Kimi Claw 品牌
-        </p>
+    <div class="recommend">
+        <div class="recommend-title">推薦用 Option 1</div>
+        <div class="recommend-text">螃蟹 + SS-RANK 最識別到 Kimi Claw 品牌</div>
     </div>
 </body>
 </html>
